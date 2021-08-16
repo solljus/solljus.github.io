@@ -6,7 +6,8 @@ var CETEI = (function () {
       "tei": "http://www.tei-c.org/ns/1.0",
       "teieg": "http://www.tei-c.org/ns/Examples",
       "rng": "http://relaxng.org/ns/structure/1.0",
-      // Add your own namespace in line 11 below
+      // Add your own namespace in line 11 below; this needs to match the 
+      // namespace on the root element of your XML files.
       // If you want to use a different prefix instead of "mine",
       // remember to change it in line 14 below and in the CETEIcean_local.css file.
       "mine": "[namespace]"
