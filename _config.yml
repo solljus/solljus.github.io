@@ -8,8 +8,8 @@ name: Your Name
 # Short bio or description (displayed in the header)
 description: A description of you
 
-# URL or filepath of your avatar or profile pic (you could use your GitHub profile pic)
-avatar:  
+# URL of your avatar or profile pic
+avatar: https://raw.githubusercontent.com/[yourusername]/[yourusername].github.io/master/images/[filename].jpg
 
 #
 # Flags below are optional
