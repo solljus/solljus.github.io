@@ -13,15 +13,29 @@ var CETEI = (function () {
       "mine": "http://[yourgithubsite]/ns/1.0"
     },
     "mine": {
+      // The code below gives special treatment to particular XML elements, going
+      // beyond the simple styling that is provided by the CSS stylesheets. The
+      // examples here all use TEI elements and attributes, but you can replace 
+      // them with elements and attributes from your own encoding. It may help to
+      // look up the TEI versions in the TEI Guideines to see how the encoding works,
+      // so that you can adapt this code to handle your own XML.
+      
+      // The next line formats the content of the specified element with <pre> which
+      // treats it like a code sample, preserving white space. Replace eg with your own element.
       "eg": ["<pre>","</pre>"],
-      // inserts a link inside <ptr> using the @target; the link in the
+
+      // This next bit inserts a link inside <ptr> using the @target; the link in the
       // @href is piped through the rw (rewrite) function before insertion
       "ptr": ["<a href=\"$rw@target\">$@target</a>"],
+
       // The next bit of code wraps the content of the element you specify in an HTML link.
       // Change ref to the name of your element, and change target to the name of your attribute.
       "ref": [
         ["[target]", ["<a href=\"$rw@target\">","</a>"]]
       ],
+      
+      // The code segment below controls the size (height/width) of the graphic element
+
       "graphic": function(elt) {
         let content = new Image();
         content.src = this.rw(elt.getAttribute("url"));
@@ -33,6 +47,8 @@ var CETEI = (function () {
         }
         return content;
       },
+      
+      // The code segment below does something special with a <list type="gloss">
       "list": [
         // will only run on a list where @type="gloss"
         ["[type=gloss]", function(elt) {
@@ -54,6 +70,9 @@ var CETEI = (function () {
           return dl;
         }
       ]],
+      
+      // The code segment below moves endnotes to the end of the HTML page, and creates 
+      // a numbered anchor with a link to the note.
       "note": [
         // Make endnotes
         ["[place=end]", function(elt){
