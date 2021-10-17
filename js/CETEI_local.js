@@ -17,7 +17,8 @@ var CETEI = (function () {
       // inserts a link inside <ptr> using the @target; the link in the
       // @href is piped through the rw (rewrite) function before insertion
       "ptr": ["<a href=\"$rw@target\">$@target</a>"],
-      // wraps the content of the <ref> in an HTML link
+      // The next bit of code wraps the content of the element you specify in an HTML link.
+      // Change ref to the name of your element, and change target to the name of your attribute.
       "ref": [
         ["[target]", ["<a href=\"$rw@target\">","</a>"]]
       ],
